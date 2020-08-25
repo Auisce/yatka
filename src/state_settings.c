@@ -144,6 +144,7 @@ static void left(void)
 		case SL_RANDOMIZER:
 		{
 			decMod((int*)&randomalgo, RA_END, false);
+			randomizer_reset();
 			settings_changed = true;
 		} break;
 		default:
@@ -195,6 +196,7 @@ static void right(void)
 		case SL_RANDOMIZER:
 		{
 			incMod((int*)&randomalgo, RA_END, false);
+			randomizer_reset();
 			settings_changed = true;
 		} break;
 		default:
@@ -313,7 +315,6 @@ static char *generateSettingLine(char *buff, int pos)
 		{
 			static char *tc_strings[] = {
 				"random",
-				"tengen",
 				"standard",
 				"gray"
 			};
